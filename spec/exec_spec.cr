@@ -9,7 +9,7 @@ describe Exec do
 
     sleep 50.milliseconds
 
-    count.get.should eq 5
+    count.get.should be_close(5, 1)
   end
 
   it "handles blocks that run past the interval" do
@@ -21,7 +21,7 @@ describe Exec do
 
     sleep 50.milliseconds
 
-    count.get.should eq 5
+    count.get.should be_close(5, 1)
   end
 
   it "handles nesting of exec blocks" do
@@ -36,8 +36,8 @@ describe Exec do
 
     sleep 50.milliseconds
 
-    count1.get.should eq 5
-    count2.get.should eq 0
+    count1.get.should be_close(5, 1)
+    count2.get.should be_close(0, 1)
   end
 
   it "handles multiple exec blocks simultaneously" do
