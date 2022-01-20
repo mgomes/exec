@@ -1,6 +1,10 @@
-# exec
+# Exec
 
-TODO: Write a description here
+A lightweight library for executing blocks at specified intervals. This library
+aims to solve the following:
+
+* Reliably run blocks at specified intervals regardless of the runtime duration of the block.
+* Keep it light (avoid timezones and dependencies)
 
 ## Installation
 
@@ -9,7 +13,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      exec:
-       github: your-github-user/exec
+       github: mgomes/exec
    ```
 
 2. Run `shards install`
@@ -20,20 +24,17 @@ TODO: Write a description here
 require "exec"
 ```
 
-TODO: Write usage instructions here
+Specify the execution intervals for your code blocks:
 
-## Development
+```crystal
+Exec.every(1.second) do
+  do_work
+end
+```
 
-TODO: Write development instructions here
+```crystal
+Exec.every(3.hours) do
+  do_work
+end
+```
 
-## Contributing
-
-1. Fork it (<https://github.com/your-github-user/exec/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Contributors
-
-- [Mauricio Gomes](https://github.com/your-github-user) - creator and maintainer
